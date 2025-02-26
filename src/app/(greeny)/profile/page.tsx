@@ -4,7 +4,6 @@ import Tab from '@components/Tab';
 import { CoreErrorRes, SingleItem } from '@/types/response';
 import { UserInfo } from '@/types/user';
 import { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import PlantList from './PlantList';
 import PostList from './PostList';
 import Profile from './Profile';
@@ -24,9 +23,8 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const session = await auth();
-  if (!session) redirect('/login');
 
-  const urlParam = session.user!.id;
+  const urlParam = session!.user!.id;
   const response = await fetch(`${SERVER}/users/${urlParam}`, {
     headers: {
       'client-id': `${DBNAME}`,
@@ -39,7 +37,7 @@ export default async function Page() {
 
   return (
     <div className={styles.page_container}>
-      <Profile userInfo={loginUserData} userId={session.user?.id!} isMovable />
+      <Profile userInfo={loginUserData} userId={session!.user?.id!} isMovable />
       <div className={styles.tab_container}>
         <Tab first={myPlant} second={myPost} firstSrOnly="식물" secondSrOnly="포스트" />
       </div>
