@@ -2,16 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from './auth';
 
 export default async function middlware(request: NextRequest) {
-  // console.log('미들웨어 호출', request.nextUrl.href);
   const session = await auth();
 
-  console.log(session);
+  if (request.nextUrl.pathname.startsWith('/login') && session?.user) {
+    return NextResponse.redirect(`${request.nextUrl.origin}`);
+  }
 
-  if (!session?.user) {
+  if ((request.nextUrl.pathname.startsWith('/profile') || request.nextUrl.pathname.startsWith('/plant')) && !session?.user) {
     return NextResponse.redirect(`${request.nextUrl.origin}/login`);
   }
 }
 
 export const config = {
-  matcher: ['/profile', '/plant'],
+  matcher: ['/profile', '/plant', '/login'],
 };
