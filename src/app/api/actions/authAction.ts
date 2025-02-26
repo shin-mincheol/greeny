@@ -5,15 +5,13 @@ import { signIn } from '@/auth';
 // email/password 로그인
 export async function signInWithCredentials(formData: FormData) {
   try {
-    const result = await signIn('credentials', {
+    await signIn('credentials', {
       email: formData.get('email') || '',
       password: formData.get('password') || '',
       redirect: false,
     });
-
-    console.log(result);
   } catch (err) {
-    console.error(err);
+    throw new Error('로그인 실패');
   }
 }
 

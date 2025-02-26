@@ -26,10 +26,9 @@ export default function LoginForm() {
       formData.append('email', data.email);
       formData.append('password', data.password);
       await signInWithCredentials(formData);
-      await alert('Greeny오신걸 환영합니다! 🌿');
       router.push('/');
     } catch (error) {
-      console.error(error);
+      await alert('아이디 또는 비밀번호가 잘못 되었습니다.');
     }
   };
 
