@@ -1,4 +1,5 @@
 'use client';
+
 import styles from './Login.module.scss';
 import git from '@images/Social_Github.svg';
 import google from '@images/Social_Google.svg';
@@ -18,7 +19,12 @@ export default function LoginForm() {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<UserLoginForm>();
+  } = useForm<UserLoginForm>({
+    defaultValues: {
+      email: 'p1@plant.com',
+      password: '11111111',
+    },
+  });
   const { alert } = useModal();
   const onSubmit = async (data: UserLoginForm) => {
     try {
@@ -26,7 +32,12 @@ export default function LoginForm() {
       formData.append('email', data.email);
       formData.append('password', data.password);
       await signInWithCredentials(formData);
-      router.push('/');
+
+      if (document.referrer?.startsWith(process.env.NEXT_PUBLIC_BASIC_URL!)) {
+        router.back();
+      } else {
+        router.push('/');
+      }
     } catch (error) {
       await alert('아이디 또는 비밀번호가 잘못 되었습니다.');
     }
