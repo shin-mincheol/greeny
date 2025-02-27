@@ -16,14 +16,14 @@ type Props = {
 type Form = { content: string };
 
 export default function ReplyInput({ postId }: Props) {
-  const { data } = useSession();
+  const { data: session } = useSession();
   const { push } = useRouter();
   const { alert, confirm } = useModal();
   const { register, handleSubmit, reset } = useForm<Form>();
   const { setMutateType } = useReplyContext();
   const addReplyWithId: SubmitHandler<Form> = async (formData: Form) => {
-    if (!data) {
-      return (await confirm(`로그인이 필요한 서비스입니다\n 로그인 하시겠습니까?`)) && push('/login');
+    if (!session) {
+      return (await confirm('로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?')) && push('/login');
     }
 
     const resJson = await addReply.bind(null, postId)(formData.content.trim());

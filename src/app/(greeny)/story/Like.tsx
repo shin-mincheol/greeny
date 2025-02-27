@@ -17,12 +17,12 @@ type Props = {
 
 export default function Like({ number, targetId, bookmarkId, content, onLikeClick }: Props) {
   const isFilled = !!bookmarkId;
-  const { data } = useSession();
+  const { data: session } = useSession();
   const { push } = useRouter();
   const { confirm } = useModal();
 
   const likePostWithId = async () => {
-    if (!data) {
+    if (!session) {
       return (await confirm('로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?')) && push('/login');
     }
     const res = await likePost.bind(null, targetId, content)();
