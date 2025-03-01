@@ -29,7 +29,7 @@
 ## 소개 및 개요
 
 - **프로젝트 기간** : 2024.07.29 ~ 2024.08.27
-- **배포 URL** : [🌿Greeny](https://greeny.vercel.app/)
+- **배포 URL** : [🌿Greeny](https://greeny-gules.vercel.app/)
 - **테스트 계정**
   ```
     ID: p1@plant.com
@@ -37,8 +37,8 @@
   ```
 
 📑 **프로젝트 관련 자료**
-👉 🌿[피그마 시안 디자인](https://www.figma.com/design/wScllow4nEUlwP5rT813CS/Greeny?node-id=54-1972&t=oYjGGnHR8T2MGjmm-1)
-👉 🌿[요구사항 명세서](https://docs.google.com/spreadsheets/d/1twNWiRhqbNU6QIXePoJyC9YdHr4K_NChuiAptxXQFPY/edit?usp=sharing)
+👉 🌿[피그마 시안 디자인](<https://www.figma.com/design/Kf85LkuNa1u9AUm5yuEUgG/Greeny-(%EA%B0%9C%EC%9D%B8)?node-id=0-1&p=f&t=DEAzPnqb89A3LSjo-0>)
+👉 🌿[요구사항 명세서](https://docs.google.com/spreadsheets/d/1dvSrs50VK7-9ENMgWm4LfGpRx0a0tnSWa_DeJPY1Tcg/edit?gid=0#gid=0)
 👉 🌿[팀 노션페이지](https://meadow-hydrogen-e0d.notion.site/b0b2b9e4d430483bb1988166a86518be?pvs=4)
 
 <br/>
