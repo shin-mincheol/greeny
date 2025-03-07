@@ -58,7 +58,7 @@ export default function Footer({ session }: { session: Session | null }) {
             {session?.user ? (
               <Link href="/profile" className={styles.nav_item}>
                 <div className={styles.user_cover}>
-                  <Image src={`${session?.user ? session?.user.image : profile}`} alt="유저사진" fill sizes="100%" />
+                  <Image src={session?.user.image ? session?.user.image : profile} alt="유저사진" fill sizes="100%" />
                 </div>
                 <p className={`${pathname.includes('/profile') ? `${styles.is_active}` : ''}`}>마이페이지</p>
               </Link>
