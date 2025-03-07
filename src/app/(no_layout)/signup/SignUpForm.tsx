@@ -46,8 +46,8 @@ export default function SignupForm() {
 
     const resData = await signup(userForm);
     if (resData.ok) {
-      await alert(`안녕하세요${resData.item.name}님:) \n회원가입을 환영합니다.`);
-      router.push('/');
+      await alert(`안녕하세요 ${resData.item.name}님:) \n회원가입을 환영합니다.`);
+      router.push('/login');
     } else {
       if ('errors' in resData) {
         resData.errors.forEach((error) => setError(error.path, { message: error.msg }));
