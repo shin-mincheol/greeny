@@ -20,7 +20,7 @@ export default function PlantInfo({ item, user }: { item: PlantRes; user: Sessio
   };
 
   const handleDelete = async () => {
-    const modal = await confirm(`"정말 떠나보낼 거예요?" \n${item.name}이(가) 마지막으로 잎사귀를 흔들고 있어요... 🍃`);
+    const modal = await confirm(`"정말 떠나보낼 거예요?" \n${item.name}(이)가 마지막으로 잎사귀를 흔들고 있어요... 🍃`);
     if (modal) {
       plantsDelete(item._id);
       router.push('/plant');

@@ -137,7 +137,7 @@ export default function MyPlantEditForm({ item }: { item: PlantRes }) {
       const res = await plantEdit(item._id, plantEditForm);
 
       if (res.ok) {
-        await alert(`"${res.item.name}이(가) 조금 더 특별해졌어요! 새로운 모습으로 여러분을 맞이해요! 🌱💕"`);
+        await alert(`"${res.item.name}(이)가 조금 더 특별해졌어요! 새로운 모습으로 여러분을 맞이해요! 🌱💕"`);
         router.replace(`/plant/${item._id}`);
       }
     } catch (err) {

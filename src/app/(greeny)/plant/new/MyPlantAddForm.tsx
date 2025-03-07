@@ -101,9 +101,8 @@ export default function MyPlantAddForm() {
         }
 
         const res = await plantNew(plantForm);
-        // console.log(res);
         if (res.ok) {
-          await alert(`${res.item.name}이(가) 우리 가족에 합류했어요! `);
+          await alert(`${res.item.name}(이)가 우리 가족이 되었어요!`);
           router.push('/plant');
         }
       } catch (err) {

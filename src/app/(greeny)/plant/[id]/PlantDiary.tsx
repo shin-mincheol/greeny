@@ -100,7 +100,7 @@ export default function PlantDiray({ item, user }: { item: PlantRes; user: Sessi
       ))
     ) : (
       <li className={styles.diaryNull}>
-        <span>{item.name}</span>이(가) 몰래 메시지를 남겼어요! <br /> &quot;나 오늘 잘 자랐어?&quot;
+        <span>{item.name}</span>(이)가 몰래 메시지를 남겼어요! <br /> &quot;나 오늘 잘 자랐어?&quot;
       </li>
     );
 
@@ -119,7 +119,7 @@ export default function PlantDiray({ item, user }: { item: PlantRes; user: Sessi
   };
 
   const handleDelete = async () => {
-    const modal = await confirm(`"정말 떠나보낼 거예요?" \n${item.name}이(가) 마지막으로 잎사귀를 흔들고 있어요... 🍃`);
+    const modal = await confirm(`"정말 떠나보낼 거예요?" \n${item.name}(이)가 마지막으로 잎사귀를 흔들고 있어요... 🍃`);
     if (modal) {
       plantsDelete(item._id);
       router.push('/plant');
