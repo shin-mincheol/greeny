@@ -25,7 +25,7 @@ export default async function PlantList(id: string, isMe: boolean) {
             <p>지금 여러분의 식물 정원이 비어있네요.</p>
             <p>식물 친구를 초대해주세요!</p>
           </div>
-          <Link href="/plant" className={styles.zero_item_noti_link}>
+          <Link href="/plant/new" className={styles.zero_item_noti_link}>
             <Button btnSize="sm">식물 추가하기</Button>
           </Link>
         </div>
