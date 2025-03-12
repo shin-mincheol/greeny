@@ -12,7 +12,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 import plantEdit from '@images/PlantEdit.svg';
 import Link from 'next/link';
-import { plantsDelete } from '@/app/api/actions/plantAction';
+
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 export async function generateMetadata({ params }: { params: { id: string } }, parent: ResolvingMetadata): Promise<Metadata> {
@@ -37,7 +37,7 @@ export default async function MyPlantDetail({ params }: { params: { id: string }
 
   const currentDay = item.adoptionDate;
   const toDay = new Date();
-  const diffDays = differenceInDays(toDay, currentDay);
+  const diffDays = differenceInDays(toDay, currentDay) + 1;
 
   return (
     <div className={styles.plantDetail_wrapper}>

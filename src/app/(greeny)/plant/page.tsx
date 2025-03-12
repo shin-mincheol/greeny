@@ -35,7 +35,7 @@ export default async function MyPlant() {
   const myPlantList = data?.map((item: PlantRes) => {
     const currentDay: Date | null = item.adoptionDate;
     const toDay: Date = new Date();
-    const diffDays = currentDay && differenceInDays(toDay, currentDay);
+    const diffDays = currentDay && differenceInDays(toDay, currentDay) + 1;
 
     return (
       <Link href={`/plant/${item._id}`} className={styles.contents_item} key={item._id}>
