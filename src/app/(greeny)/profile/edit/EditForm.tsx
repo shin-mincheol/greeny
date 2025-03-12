@@ -8,6 +8,7 @@ import Button from '@/components/button/Button';
 import photoAdd from '@images/PhotoAddIcon.svg';
 import { editUser } from '@/app/api/actions/userAction';
 import { signOut } from 'next-auth/react';
+import useModal from '@/hooks/useModal';
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 export default function EditForm({ user }: { user: UserInfo }) {
@@ -18,6 +19,7 @@ export default function EditForm({ user }: { user: UserInfo }) {
     setError,
     watch,
   } = useForm<UserForm>();
+  const { alert } = useModal();
 
   //프로필 미리보기
   const [imagePreview, setImagePreview] = useState<string>();
@@ -42,9 +44,9 @@ export default function EditForm({ user }: { user: UserInfo }) {
 
     const resData = await editUser(userForm);
     if (resData.ok) {
-      alert(`프로필 수정이 완료되었습니다.\n재로그인 해주세요.`);
+      await alert(`프로필 수정이 완료되었습니다.\n재로그인 해주세요.`);
       signOut({
-        callbackUrl: '/',
+        callbackUrl: '/login',
       });
     } else {
       if ('errors' in resData) {

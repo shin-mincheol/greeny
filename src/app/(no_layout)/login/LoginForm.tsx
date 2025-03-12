@@ -33,7 +33,8 @@ export default function LoginForm() {
       formData.append('password', data.password);
       await signInWithCredentials(formData);
 
-      if (document.referrer?.startsWith(process.env.NEXT_PUBLIC_BASIC_URL!)) {
+      const prevURL = document.referrer;
+      if (prevURL?.startsWith(process.env.NEXT_PUBLIC_BASIC_URL!) && prevURL !== process.env.NEXT_PUBLIC_BASIC_URL + '/profile/edit') {
         router.back();
       } else {
         router.push('/');
