@@ -45,10 +45,12 @@ export default async function MyPlantDetail({ params }: { params: { id: string }
         <h2>{item.name}</h2>
 
         {Number(session?.user?.id) === item.seller_id && (
-          <div className={styles.plantDetail_edit}>
-            <Image src={plantEdit} alt="식물 수정 버튼" width={20} height={20} />
-            <Link href={`/plant/${item._id}/edit`}>정보 수정</Link>
-          </div>
+          <Link href={`/plant/${item._id}/edit`}>
+            <div className={styles.plantDetail_edit}>
+              <Image src={plantEdit} alt="식물 수정 버튼" width={20} height={20} />
+              정보 수정
+            </div>
+          </Link>
         )}
       </div>
       <div className={styles.plant}>
